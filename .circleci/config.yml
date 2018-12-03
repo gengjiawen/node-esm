@@ -11,7 +11,7 @@ jobs:
             source ~/.bashrc
             nvm i 11
             node --version
-            node --experimental-modules .\test-esm.js
+            node --experimental-modules .\test-esm.mjs
 
 workflows:
   version: 2
