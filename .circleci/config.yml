@@ -8,6 +8,7 @@ jobs:
       - run:
           name: test esm
           command: |
+            source ~/.bashrc
             nvm i 11
             node --version
             node --experimental-modules .\test-esm.js
