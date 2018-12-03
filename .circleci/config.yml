@@ -9,8 +9,9 @@ jobs:
           name: test esm
           command: |
             source ~/.bashrc
-            nvm i 11
+            nvm i 11.3.0
             node --version
+            node --experimental-modules test-esm.mjs
             node --experimental-modules .\test-esm.mjs
 
 workflows:
