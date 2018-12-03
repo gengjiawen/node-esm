@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  test:
+    machine: true
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run:
+          name: test esm
+          command: |
+            nvm i 11
+            node --version
+            node --experimental-modules .\test-esm.js
+
+workflows:
+  version: 2
+  perfs:
+    jobs:
+      - test
