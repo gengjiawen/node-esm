@@ -9,10 +9,11 @@ jobs:
           name: test esm
           command: |
             source ~/.bashrc
-            nvm i 11.3.0
-            node --version
-            node --experimental-modules test-esm.mjs
-            node --experimental-modules .\test-esm.mjs
+            nvm i node
+            npm i -g envinfo && envinfo
+            git clone https://github.com/nodejs/node --depth=10
+            cd node
+            docker run --rm --name build-node -v $PWD:/pwd -w /pwd gengjiawen/node-build bash -c "./configure && make -j4 test"
 
 workflows:
   version: 2
