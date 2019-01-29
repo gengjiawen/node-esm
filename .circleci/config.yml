@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: test esm
+          name: Test Node build
           command: |
             source ~/.bashrc
             nvm i node
