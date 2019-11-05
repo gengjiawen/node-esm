@@ -10,10 +10,11 @@ jobs:
           command: |
             source ~/.bashrc
             nvm i node
-            npm i -g envinfo && envinfo
+            npx envinfo
             git clone https://github.com/nodejs/node --depth=10
             cd node
-            docker run --rm --name build-node -v $PWD:/pwd -w /pwd gengjiawen/node-build bash -c "./configure && make -j4 && make test"
+            docker run --rm --name build-node -v $PWD:/pwd -w /pwd gengjiawen/node-build bash -c "./configure --enable-asan --debug
+ && make -j4 && make test"
 
 workflows:
   version: 2
