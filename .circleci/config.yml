@@ -14,7 +14,7 @@ jobs:
             npx envinfo
             git clone https://github.com/nodejs/node --depth=10
             cd node
-            docker run --rm --name build-node -v $PWD:/pwd -w /pwd gengjiawen/node-build bash -c "./configure --enable-asan --debug && make -j4 && make test"
+            docker run --rm -v $PWD:/pwd -w /pwd gengjiawen/node-build bash -c "./configure --debug --enable-asan --ninja && ninja -C out/Debug && python3 tools/test.py -J --mode=debug"
 
 workflows:
   version: 2
